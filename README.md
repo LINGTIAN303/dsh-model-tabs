@@ -153,7 +153,7 @@ npm test          # check + smoke 全链路（105 项断言）
 | `tools/smoke-assembly.cjs` | 假 React stub 验装配契约 |
 | `tools/smoke-modeltabs.mjs` | jsdom 真 DOM 渲染主组件，验两级 Tab / 过滤 / 选择 |
 
-设计文档：[技术勘察](docs/plans/2026-11-05-模型选择器Tab增强-技术勘察.md) · [实施方案](docs/plans/2026-11-05-模型选择器Tab增强-实施方案.md)
+设计文档：[技术勘察](docs/plans/2026-11-05-模型选择器Tab增强-技术勘察.md) · [实施方案](docs/plans/已完成/2026-11-05-模型选择器Tab增强-实施方案.md)
 
 > 实施方案的「不可达项」提到我们直接渲染模型名。真机验证阶段还发现并修复了
 > 单槽退位（`scope.effect` 契约不符 / `directoryFor` 抛错导致静默失去 UI），
