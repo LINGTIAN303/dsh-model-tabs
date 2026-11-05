@@ -59,6 +59,13 @@ DSH 官方模型选择器已经按提供商分组，但**只是一层平铺列�
 ## 安装
 
 ```bash
+# 方式一：npm（预构建，免构建脚本授权）
+dsh plugin --profile <你的 profile> add dsh-model-tabs
+
+# 方式二：GitHub 源码
+dsh plugin --profile <你的 profile> add github:LINGTIAN303/dsh-model-tabs
+
+# 方式三：本地开发
 dsh plugin --profile <你的 profile> add "link:<本插件目录绝对路径>"
 ```
 
@@ -131,11 +138,13 @@ npm test          # check + smoke 全链路（105 项断言）
 | 文件 | 职责 |
 |---|---|
 | `src/host/index.js` | Host 半边（空实现，仅满足 bundle patch 需要可解析的 main） |
-| `src/client/index.js` | 装配：注册两个槽、服务缺失时退让 |
-| `src/client/ModelTabs.js` | 模型座位主组件（trigger + 菜单 + 两级 Tab + 过滤 + effort） |
+| `src/client/index.js` | 装配：注册两个槽、服务缺失时退让、`directoryFor` 兜底 |
+| `src/client/ModelSeat.js` | 座位错误边界：渲染抛错时记录诊断并主动让位给官方选择器 |
+| `src/client/ModelTabs.js` | 模型座位主组件（trigger + 菜单 + 两级底部 Tab + 过滤 + effort） |
 | `src/client/SettingsPanel.js` | 设置页 |
 | `src/client/family.js` | 族分类纯逻辑 |
 | `src/client/config.js` | 配置读写/校验/合并/订阅 |
+| `src/client/seat.js` | 座位守卫：诊断落盘（`localStorage['dsh-model-tabs.lastError']`）+ 让位 |
 | `src/client/locale.js` | zh / en 字典 |
 | `tools/build.mjs` | esbuild 打包 + `__ModuleLoader__.load` 包裹 |
 | `tools/check-family.mjs` | 族分类与配置回归 |
@@ -145,6 +154,10 @@ npm test          # check + smoke 全链路（105 项断言）
 | `tools/smoke-modeltabs.mjs` | jsdom 真 DOM 渲染主组件，验两级 Tab / 过滤 / 选择 |
 
 设计文档：[技术勘察](docs/plans/2026-11-05-模型选择器Tab增强-技术勘察.md) · [实施方案](docs/plans/2026-11-05-模型选择器Tab增强-实施方案.md)
+
+> 实施方案的「不可达项」提到我们直接渲染模型名。真机验证阶段还发现并修复了
+> 单槽退位（`scope.effect` 契约不符 / `directoryFor` 抛错导致静默失去 UI），
+> 见提交历史中的守卫相关提交。
 
 ## 许可
 
