@@ -14,8 +14,17 @@
     "lib",
     "cordis.patch.yml",
     "README.md",
+    "LICENSE",
     "screenshots.json"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LINGTIAN303/dsh-model-tabs.git"
+  },
+  "homepage": "https://github.com/LINGTIAN303/dsh-model-tabs#readme",
+  "bugs": {
+    "url": "https://github.com/LINGTIAN303/dsh-model-tabs/issues"
+  },
   "keywords": [
     "dsh",
     "dsh-plugin",
