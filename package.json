@@ -1,6 +1,6 @@
 {
   "name": "dsh-model-tabs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "为 DeepSeek Harness 的模型选择器加两级 Tab（提供商 + 模型系列），大目录时减少滚动翻找；族规则可在设置页配置。",
   "type": "module",
   "main": "lib/index.js",
