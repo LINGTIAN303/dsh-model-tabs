@@ -4,3 +4,6 @@ node_modules/
 # 构建中间物与临时脚本
 .scratch/
 *.log
+
+# npm pack 产物
+*.tgz
